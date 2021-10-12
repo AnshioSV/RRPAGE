@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <style>
+   
+.topnav {
+  background-color: #ff5a00;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 0px 0px 0px;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 16px;
+  text-decoration: none;
+  font-size:12px;
+}
+
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+.topnav input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 9px;
+  margin-right: 0px;
+  font-size: 12px;
+}
+.topnav button {
+  float: right;
+  width: 50px;
+  height: 30px;
+  padding: 9px;
+  background: black;
+  color: white;
+  font-size: 10px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+  margin-right: 7px;
+  margin-top: 7px;
+  
+}
+
+.topnav button:hover {
+  background: #333;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.topnav img{
+	float:left;
+	margin-left:4px;
+	margin-right:4px;
+	margin-top:3px;
+  opacity: 1
+}
+
+
+
+img{
+	opacity:1;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.top-left{
+  position: absolute;
+  top: 40px;
+  left: 16px;
+}
+
+
+
+.footer {
+  width: 100%;
+  position: relative;
+  height: auto;
+  background-color: #ff5a00;
+}
+.footer .col {
+  width: 190px;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 20px 20px 20px 20px;
+}
+.footer .col h1 {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: black;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.250em;
+}
+.footer .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer .col ul li {
+  color: black;
+  font-size: 14px;
+  font-family: inherit;
+  font-weight: bold;
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+.social ul li {
+  display: inline-block;
+  padding-right: 5px ;
+}
+
+.footer .col ul li:hover {
+  color: #ffffff;
+  transition: .1s;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+}
+.clearfix {
+  clear: both;
+}
+
+.filter{
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr 1fr;
+	grid-column-gap:1em;
+	grid-row-gap:1em;
+	box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  margin: 10px;
+  font-family: Agency FB ;
+}
+
+.filter > div{
+	background:#eee;
+	padding:1em;
+	
+}
+
+.filter >div:nth-child(odd){
+	background:#ddd;
+}
+
+.container1 {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+.container1 input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #ff7200;
+}
+
+
+.container1:hover input ~ .checkmark {
+  background-color: black;
+}
+
+
+.container1 input:checked ~ .checkmark {
+  background-color: #333;
+}
+
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+
+.container1 input:checked ~ .checkmark:after {
+  display: block;
+}
+
+
+.container1 .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.filterbutton {
+  border: none;
+  outline: 0;
+  padding: 8px;
+  color: white;
+  background-color: #333;
+  text-align: center;
+  cursor: pointer;
+  width: 49%;
+  font-size: 12px;
+}
+.tcenter {
+  text-align: center;
+  opacity: 1;
+}
+
+
+.filterbutton:hover {
+  opacity: 0.5;
+}
+
+
+
+
+.wrapper{
+	display:grid;
+	grid-template-columns:1fr 1fr 1fr 1fr;
+	grid-column-gap:1em;
+	grid-row-gap:1em;
+}
+
+.wrapper > div{
+	background:#eee;
+	padding:1em;
+	
+}
+
+.wrapper >div:nth-child(odd){
+	background:#ddd;
+}
+
+
+
+.card {
+  box-shadow: 5px 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+  font-size: 12px;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.card2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card2 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card2 button:hover {
+  opacity: 0.7;
+}
+
+.card3 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card3 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card3 button:hover {
+  opacity: 0.7;
+}
+
+.card4 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card4 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card4 button:hover {
+  opacity: 0.7;
+}
+
+.card5 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card5 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card5 button:hover {
+  opacity: 0.7;
+}
+
+.card6 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 24px;
+}
+
+.card6 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card6 button:hover {
+  opacity: 0.7;
+}
+
+.card7 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card7 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card7 button:hover {
+  opacity: 0.7;
+}
+
+.card8 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 10px;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 14px;
+}
+
+.card8 button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+}
+
+.card8 button:hover {
+  opacity: 0.7;
+  
+}
+.btn-group{
+  text-align: center;
+  font-size: 18px;
+  margin-bottom:10px;
+  margin-top:10px;
+}
+.b{
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: black;
+  text-align: center;
+  font-size: 10px;
+}
+.b:hover {
+  opacity: 0.7;
+  background: #333;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  
+}
+body{
+  background-color: black;
+}
+
+
+      </style>
+      <title>RRMART</title>
+	  <link rel="stylesheet" href="style.css"/>
+      <div class="topnav">
+	  <img src="https://github.com/AnshioSV/RRPAGE/blob/main/PROFILE%20copy.jpg" alt="CCART" height="40px" width="40px">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+	  <button type="submit"><i class="fa fa-search">Search</i></button>
+	  <input type="text" placeholder="Search..">
+      </div>
+	   
+	 
+	  
+   </head>
+   <body>
+   <h1 style="text-align:center">Filters</h1>
+  <div class="filter">
+  
+  
+  
+  <div class="categories">
+  <p>Categories:<p>
+  
+  <label class="container1">Tailored jeans
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Loose Fit
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Slim Fit
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Regular Fit
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div class="proprice">
+<p>Price:</p>
+<label class="container1">5-10
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">10-20
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">20-50
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">50 & above
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div class="proprice">
+<p>Rating:</p>
+<label class="container1">One & above
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Two & above
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Three & above
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Four & above
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+<label class="container1">Five & above
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+</div>
+
+<div class="proprice">
+<p>Company:</p>
+<label class="container1">Levi's
+  <input type="checkbox" checked="checked">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Diesel
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Calvin klein
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container1">Wrangler
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+</div>
+  
+  
+  
+  
+  
+  
+  
+  
+</div>
+<div class="tcenter"><button class="filterbutton">Add Filters</button></div>
+
+
+
+    <div class="wrapper">
+	
+
+	<div class="card">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$19.99</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+</div>
+
+<div class="card2">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$9.99</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+  
+  <div class="card3">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$6.99</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+  
+  <div class="card4">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$7.00</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+  
+  <div class="card5">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$9.00</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+  <div class="card6">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$10.00</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+  <div class="card7">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$10.00</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+  <div class="card8">
+  <img src="https://raw.githubusercontent.com/PrasannaKumar-19/CCART/main/_.png" alt="pen" style="width:100%">
+  <h1>Tailored Jeans</h1>
+  <p class="price">$10.00</p>
+  <p>Levi's</p>
+  <p><button>Add to Cart</button></p>
+  </div>
+</div>
+	</div>
+   
+
+   
+   
+      
+   
+   
+   
+   
+    <div class="btn-group" align : "center">
+	 <button class="b" align="center"><<</button>
+	 <button class="b">Previous</button>
+     <button class="b">1</button>
+     <button class="b">2</button>
+     <button class="b">3</button>
+	 <button class="b">Next</button>
+	 <button class="b">>></button>
+	 
+     </div>
+   
+   
+   
+   
+   
+   
+   
+      <div class="footer">
+	  
+       <div class="contain">
+  
+       <div class="col">
+        <h1>Team</h1>
+        <ul>
+        <li>Our Story</li>
+        <li>Journey of our creators</li>
+        </ul>
+       </div>
+       <div class="col">
+        <h1>Quick Links</h1>
+        <ul>
+        <li>Shop</li>
+        <li>Join us</li>
+        <li>FAQ</li>
+        <li>Contact us</li>
+        <li>Terms and conditions</li>
+        </ul>
+        </div>
+       <div class="col">
+        <h1>Contact info</h1>
+        <ul>
+        <li>About</li>
+        <li>Mission</li>
+        <li>Services</li>
+        <li>Social</li>
+        <li>Get in touch</li>
+        </ul>
+       </div>
+       <div class="col social">
+        <h1>Social</h1>
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+       <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+       </svg>
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+       <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+       </svg>
+       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+       <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+       </svg>
+       </div>
+       <div class="clearfix"></div>
+ 
+       </div>
+	   
+	   
+   </body>
+</html>.
